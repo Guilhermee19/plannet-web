@@ -13,8 +13,14 @@
       <div class="card_color"
       [ngStyle]="{'background-color': color || 'white'}"
       ></div>
-      <input type="text" title="text" class="text" [(ngModel)]="color">
-      <i icon="copy" class="icon"></i>
+      <input id="texto" *ngIf="mode == 'rgb'" type="text" title="text" [(ngModel)]="color">
+      <input id="texto" *ngIf="mode == 'hue'" type="text" title="text" [(ngModel)]="hue">
+      <i icon="copy" class="icon" (click)="copiarTexto()"></i>
     </div>
+
+    <!-- <div class="buttons">
+      <button mat-raised-button> Save </button>
+      <button mat-raised-button> Mode </button>
+    </div> -->
   </section>
 </main>

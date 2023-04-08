@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +38,7 @@ import { ColorPaletteComponent } from './pages/color-picker/color-palette/color-
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    ServiceWorkerModule
   ],
   providers: [
     {
