@@ -1,0 +1,9 @@
+
+
+<div class="todo-list">
+  <label class="todo" *ngFor="let task of toDoList">
+    <input class="todo__state" type="checkbox" [(ngModel)]="task.isChecked" (change)="checkValue(task.isChecked)" />
+
+    <div class="todo__text">Do a very important task</div>
+  </label>
+</div>

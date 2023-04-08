@@ -1,0 +1,20 @@
+<main [ngStyle]="{'background-color': color || 'white'}">
+  <section>
+
+    <div class="color-wrapper">
+      <app-color-palette [hue]="hue" (color)="color = $event"></app-color-palette>
+      <app-color-slider
+        (color)="hue=$event"
+        style="margin-left:16px"
+      ></app-color-slider>
+    </div>
+
+    <div class="input_color">
+      <div class="card_color"
+      [ngStyle]="{'background-color': color || 'white'}"
+      ></div>
+      <input type="text" title="text" class="text" [(ngModel)]="color">
+      <i icon="copy" class="icon"></i>
+    </div>
+  </section>
+</main>
