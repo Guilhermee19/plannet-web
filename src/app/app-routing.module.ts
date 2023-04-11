@@ -4,7 +4,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { ColorPickerComponent } from './pages/color-picker/color-picker.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'picker', pathMatch: 'full' },
+  { path: '', component: HomeComponent, },
+  // { path: '', redirectTo: 'picker', pathMatch: 'full' },
   { path: 'picker', component: ColorPickerComponent, },
   { path: '**', redirectTo: 'picker' }
 ];

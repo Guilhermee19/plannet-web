@@ -1,9 +1,74 @@
+
+*{
+  transition: all 0.5s cubic-bezier(.37,0,.54,.58) !important;
+}
+
 main{
+  width: 100%;
+  height: 100vh;
   margin: 0;
   padding: 0;
+  background: rgb(5,39,89);
+  background: -moz-radial-gradient(circle, rgba(5,39,89,1) 0%, rgba(1,27,66,1) 63%, rgba(0,20,46,1) 100%);
+  background: -webkit-radial-gradient(circle, rgba(5,39,89,1) 0%, rgba(1,27,66,1) 63%, rgba(0,20,46,1) 100%);
+  background: radial-gradient(circle, rgba(5,39,89,1) 0%, rgba(1,27,66,1) 63%, rgba(0,20,46,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#052759",endColorstr="#00142e",GradientType=1);
 
-  app-color-picker{
-    width: 100%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .card{
+    position: relative;
+    width: 25%;
+    aspect-ratio: 6/6;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 4;
+
+    img{
+      width: 70%;
+      object-fit: contain;
+    }
+
+    h1{
+      font-size: 1.3rem;
+      color: white;
+      font-family: 'Chakra Petch', sans-serif;
+    }
+
+    .background{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 2px;
+      border: 0.4rem solid #0b1829;
+      background-color: #081d3e;
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+      transition: all 0.5s;
+      z-index: -1;
+    }
+
+    &:hover{
+      img{
+        transform: scale(1.1) translate3d(0%, -20px, 100px);
+      }
+
+      h1{
+        transform: scale(1.1) translate3d(0%, -10px, 100px);
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);;
+      }
+
+      .background{
+        height: 30%;
+        margin-top: 68%;
+        border-radius: 20px;
+        transform: perspective(900px) scale(0.98) translateZ(0);
+      }
+    }
   }
 }

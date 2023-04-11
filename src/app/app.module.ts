@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { IconDirective } from './directives/icon.directive';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ToDoListComponent } from './pages/to-do-list/to-do-list.component';
 import { ColorPickerComponent } from './pages/color-picker/color-picker.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 @NgModule({
@@ -21,7 +20,6 @@ import { ColorPickerModule } from 'ngx-color-picker';
     IconDirective,
     HomeComponent,
     NavbarComponent,
-    ToDoListComponent,
     ColorPickerComponent,
   ],
   imports: [
