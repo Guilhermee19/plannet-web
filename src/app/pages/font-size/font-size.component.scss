@@ -1,0 +1,81 @@
+main{
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0a3357;
+
+  .form {
+    position: relative;
+    width: 90%;
+    height: 100%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .input-wrapper {
+    width: 50%;
+    max-width: 360px;
+    position: relative;
+
+    input {
+      width: 100%;
+      height: 50px;
+      font-size: 16px;
+      padding: 11px 15px;
+      border-radius: 4px;
+      border: 1px solid #CBD8E3;
+      outline: none;
+      box-sizing: border-box;
+      background-color: #0a3357;
+      color: #CBD8E3;
+    }
+
+    .placeholder {
+      pointer-events: none;
+      position: absolute;
+      font-weight: 400;
+      top: 18px;
+      left: 8px;
+      padding: 0 8px;
+      background-color: #0a3357;
+      border-radius: 5px;
+      transition: transform 250ms cubic-bezier(0.4,0,0.2,1), opacity 250ms cubic-bezier(0.4,0,0.2,1);
+      color: grey;
+    }
+  }
+
+  .input:not(:placeholder-shown).input:not(:focus) + .placeholder {
+    transform: scale(.75) translateY(-36px) translateX(-15%);
+    color: #CBD8E3;
+    transition: .2s ease;
+  }
+
+  .input:focus {
+    border-color: #0088ff;
+
+  }
+
+  .input:focus + .placeholder {
+    transform: scale(.75) translateY(-36px) translateX(-15%);
+    color: #0088ff;
+    transition: .2s ease;
+  }
+
+  .input:invalid:not(:placeholder-shown){
+    transition: .2s ease;
+    border-color:#F52C5C;
+  }
+
+  .input:invalid:not(:placeholder-shown) + .placeholder{
+    transition: .2s ease;
+    color:#F52C5C;
+  }
+  .input:invalid:not(:placeholder-shown).input:not(:focus) + .placeholder {
+    transform: scale(.75) translateY(-36px) translateX(-15%);
+    color: #F52C5C;
+    transition: .2s ease;
+  }
+}

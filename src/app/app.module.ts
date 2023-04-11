@@ -14,6 +14,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ColorPickerComponent } from './pages/color-picker/color-picker.component';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { FontSizeComponent } from './pages/font-size/font-size.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
     HomeComponent,
     NavbarComponent,
     ColorPickerComponent,
+    FontSizeComponent,
   ],
   imports: [
     BrowserModule,
