@@ -1,26 +1,31 @@
-<main [ngStyle]="{'background-color': color || 'white'}">
+<main [ngStyle]="{'background-color': hux || 'white'}">
   <section>
+    <header>
+      <h2> 🎨 Color Picker </h2>
+    </header>
 
-    <div class="color-wrapper">
-      <app-color-palette [hue]="hue" (color)="color = $event"></app-color-palette>
-      <app-color-slider
-        (color)="hue=$event"
-        style="margin-left:16px"
-      ></app-color-slider>
+    <div class="color_picker_custom">
+      <input title="component colors"
+        [style.background]="hux"
+        [cpToggle]="true"
+        [cpDialogDisplay]="'inline'"
+        [cpAlphaChannel]="'always'"
+        [cpOutputFormat]="'hex'"
+        [cpPresetColors]="arrayColors.reverse()"
+        [cpAddColorButton]="false"
+        [cpWidth]="'280px'"
+        [cpOKButton]="true"
+        [cpOKButtonText]="'✂'"
+        (colorPickerSelect)="copiarColor()"
+        [cpPresetEmptyMessage]="'Sem Cores salvas'"
+        (colorPickerChange)="setColors($event)"
+        (cpCmykColorChange)="selectColors($event)"
+        [(colorPicker)]="hux"/>
     </div>
 
-    <div class="input_color">
-      <div class="card_color"
-      [ngStyle]="{'background-color': color || 'white'}"
-      ></div>
-      <input id="texto" *ngIf="mode == 'rgb'" type="text" title="text" [(ngModel)]="color">
-      <input id="texto" *ngIf="mode == 'hue'" type="text" title="text" [(ngModel)]="hue">
-      <i icon="copy" class="icon" (click)="copiarTexto()"></i>
+    <div class="buttons">
+      <button mat-raised-button (click)="saveColor()" [style.backgroundColor]="hux"> 💾 Save </button>
+      <!-- <button mat-raised-button (click)="copiarColor()"> ✂ Copy </button> -->
     </div>
-
-    <!-- <div class="buttons">
-      <button mat-raised-button> Save </button>
-      <button mat-raised-button> Mode </button>
-    </div> -->
   </section>
 </main>

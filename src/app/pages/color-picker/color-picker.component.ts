@@ -1,4 +1,5 @@
 import { Component, AfterContentChecked } from '@angular/core'
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-color-picker',
@@ -7,26 +8,53 @@ import { Component, AfterContentChecked } from '@angular/core'
 })
 export class ColorPickerComponent implements AfterContentChecked {
 
-  hue: string = '#1c7bc2';
-  color: string = 'rgba(28,123,194,1)';
-  mode: 'rgb' | 'hue' = 'rgb';
+  constructor(private snackbarService: SnackbarService){}
+
+  hux: string = '#0d77d5d2';
+
+  arrayColors: any = [];
+  selectedColor: any;
 
   ngOnInit(){
-    this.hue = localStorage.getItem('_hue_') || '#1c7bc2';
-    this.color = localStorage.getItem('_color_') || 'rgba(28,123,194,1)';
+    this.hux = localStorage.getItem('_hux_') || '#0d77d5d2';
+    if(localStorage.getItem('_arrayColors_')){
+      this.arrayColors = JSON.parse(localStorage.getItem('_arrayColors_') || `['#0d77d5d2']`) || ['#0d77d5d2'];
+    }
   }
 
   ngAfterContentChecked(){
-    localStorage.setItem('_hue_', this.hue)
-    localStorage.setItem('_color_', this.color)
+    localStorage.setItem('_hux_', this.hux)
   }
 
-  copiarTexto() {
-    let textoCopiado: any = document.getElementById("texto");
-    textoCopiado.select();
-    textoCopiado.setSelectionRange(0, 99999)
+  copiarColor() {
+    const elementoTemporario = document.createElement("textarea");
+    elementoTemporario.value = this.hux;
+    document.body.appendChild(elementoTemporario);
+    elementoTemporario.select();
     document.execCommand("copy");
-    console.log(textoCopiado.value);
+    document.body.removeChild(elementoTemporario);
+    this.snackbarService.info('Copiado!')
   }
 
+  setColors(event: any){
+    this.hux = event;
+  }
+
+  selectColors(event: any){
+    this.selectedColor = event.color;
+
+    if(event.slider == "hue"){
+      let cursor = document.getElementsByClassName('cursor')
+      if(cursor && cursor.length > 1){
+        let curso: any = cursor.item(1) as HTMLDivElement;
+        curso.style.background = event.color;
+      }
+    }
+  }
+
+  saveColor(){
+    this.arrayColors.push(this.hux)
+    localStorage.setItem('_arrayColors_', JSON.stringify(this.arrayColors))
+    this.snackbarService.info('Cor Salva!')
+  }
 }
